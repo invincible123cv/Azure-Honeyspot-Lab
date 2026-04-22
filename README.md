@@ -1,4 +1,4 @@
-<img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/13971b64-326a-4ce0-8780-b6fb9026ee3e" /># Azure-Honeyspot-Lab
+<img width="814" height="200" alt="image" src="https://github.com/user-attachments/assets/6c3697b4-e94a-4076-b4a5-ea4b516d8bd7" /><img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/13971b64-326a-4ce0-8780-b6fb9026ee3e" /># Azure-Honeyspot-Lab
 <h1>Create Cloud Virtual Machine</h1>
 <h2> Initial architecture overview</h2>
 <p>Inside Azure Subscription we would want to build:</p>
@@ -124,3 +124,60 @@ In Log Analytics Workspace, we should see some logs generated from the VM, to qu
 <br>
 <img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/a09ec9cd-99e3-45c8-9d8a-f2ef1b74a1fc" />
 <br>
+<p>Then download this[ IP mapping list ](https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGpfb1dQcURYUDc0ektVdVZmX2pSc01CbThQQXxBQ3Jtc0ttbmp2MWJaMklKbkVPZ1phZjU5dGdFb3Fnc1NCS2Uxa3hJcm5pelRkSENNUWxXVG1EMDdaY1ZDVndYLURTb1NUUDJZa183Z3l2N1BONXlDb0x0RzlxbG5Od2pPWDBNbUI0X01BRDhULWxQdC1HUi1Ndw&q=https%3A%2F%2Fsacyberrange00.blob.core.windows.net%2Fvm-applications%2Fgeoip-summarized.csv%3Fsp%3Dr%26st%3D2025-05-16T00%3A31%3A16Z%26se%3D2030-01-01T08%3A31%3A16Z%26spr%3Dhttps%26sv%3D2024-11-04%26sr%3Db%26sig%3DtaUGULhhgRiY0BRwEEbhusoh%252BxaIQJWAFwxN2%252FOWWhc%253D) and insert it into the watchlist
+</p>
+<br>
+<img width="814" height="200" alt="image" src="https://github.com/user-attachments/assets/d64b6ac3-a10c-4d80-a81c-8d2de9f574e3" />
+<br>
+<img width="711" height="334" alt="image" src="https://github.com/user-attachments/assets/0e127c86-4335-4201-b2f9-c9b91845e327" />
+<br>
+
+<h1>Create a map in Microsoft Sentinel</h1>
+<img width="810" height="457" alt="image" src="https://github.com/user-attachments/assets/c9c81216-34c2-4a4d-b991-1cea2d65bdbe" />
+<br>
+<img width="756" height="271" alt="image" src="https://github.com/user-attachments/assets/96a5ffbf-647b-4f33-a86d-b0aa65d82190" />
+<br>
+<img width="728" height="545" alt="image" src="https://github.com/user-attachments/assets/aa58d3bb-0792-4a17-a7da-a2ce3bd4b145" />
+<br>
+
+```scss
+{
+	"type": 3,
+	"content": {
+	"version": "KqlItem/1.0",
+	"query": "let GeoIPDB_FULL = _GetWatchlist(\"geoip\");\nlet WindowsEvents = SecurityEvent;\nWindowsEvents | where EventID == 4625\n| order by TimeGenerated desc\n| evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network)\n| summarize FailureCount = count() by IpAddress, latitude, longitude, cityname, countryname\n| project FailureCount, AttackerIp = IpAddress, latitude, longitude, city = cityname, country = countryname,\nfriendly_location = strcat(cityname, \" (\", countryname, \")\");",
+	"size": 3,
+	"timeContext": {
+		"durationMs": 2592000000
+	},
+	"queryType": 0,
+	"resourceType": "microsoft.operationalinsights/workspaces",
+	"visualization": "map",
+	"mapSettings": {
+		"locInfo": "LatLong",
+		"locInfoColumn": "countryname",
+		"latitude": "latitude",
+		"longitude": "longitude",
+		"sizeSettings": "FailureCount",
+		"sizeAggregation": "Sum",
+		"opacity": 0.8,
+		"labelSettings": "friendly_location",
+		"legendMetric": "FailureCount",
+		"legendAggregation": "Sum",
+		"itemColorSettings": {
+		"nodeColorField": "FailureCount",
+		"colorAggregation": "Sum",
+		"type": "heatmap",
+		"heatmapPalette": "greenRed"
+		}
+	}
+	},
+	"name": "query - 0"
+}
+```
+<br>
+<img width="802" height="344" alt="image" src="https://github.com/user-attachments/assets/0b7be32c-4b2f-4c0e-ba38-f02baebe7fdf" />
+
+<br>
+<img width="802" height="323" alt="image" src="https://github.com/user-attachments/assets/a7a3a7ea-2d9f-4d70-810e-d8b20a20bedd" />
+
