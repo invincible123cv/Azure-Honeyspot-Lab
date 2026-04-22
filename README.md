@@ -124,7 +124,7 @@ In Log Analytics Workspace, we should see some logs generated from the VM, to qu
 <br>
 <img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/a09ec9cd-99e3-45c8-9d8a-f2ef1b74a1fc" />
 <br>
-<p>Then download this[ IP mapping list ](https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGpfb1dQcURYUDc0ektVdVZmX2pSc01CbThQQXxBQ3Jtc0ttbmp2MWJaMklKbkVPZ1phZjU5dGdFb3Fnc1NCS2Uxa3hJcm5pelRkSENNUWxXVG1EMDdaY1ZDVndYLURTb1NUUDJZa183Z3l2N1BONXlDb0x0RzlxbG5Od2pPWDBNbUI0X01BRDhULWxQdC1HUi1Ndw&q=https%3A%2F%2Fsacyberrange00.blob.core.windows.net%2Fvm-applications%2Fgeoip-summarized.csv%3Fsp%3Dr%26st%3D2025-05-16T00%3A31%3A16Z%26se%3D2030-01-01T08%3A31%3A16Z%26spr%3Dhttps%26sv%3D2024-11-04%26sr%3Db%26sig%3DtaUGULhhgRiY0BRwEEbhusoh%252BxaIQJWAFwxN2%252FOWWhc%253D) and insert it into the watchlist
+<p>Then download this [IP mapping list](https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbGpfb1dQcURYUDc0ektVdVZmX2pSc01CbThQQXxBQ3Jtc0ttbmp2MWJaMklKbkVPZ1phZjU5dGdFb3Fnc1NCS2Uxa3hJcm5pelRkSENNUWxXVG1EMDdaY1ZDVndYLURTb1NUUDJZa183Z3l2N1BONXlDb0x0RzlxbG5Od2pPWDBNbUI0X01BRDhULWxQdC1HUi1Ndw&q=https%3A%2F%2Fsacyberrange00.blob.core.windows.net%2Fvm-applications%2Fgeoip-summarized.csv%3Fsp%3Dr%26st%3D2025-05-16T00%3A31%3A16Z%26se%3D2030-01-01T08%3A31%3A16Z%26spr%3Dhttps%26sv%3D2024-11-04%26sr%3Db%26sig%3DtaUGULhhgRiY0BRwEEbhusoh%252BxaIQJWAFwxN2%252FOWWhc%253D) and insert it into the watchlist
 </p>
 <br>
 <img width="814" height="200" alt="image" src="https://github.com/user-attachments/assets/d64b6ac3-a10c-4d80-a81c-8d2de9f574e3" />
