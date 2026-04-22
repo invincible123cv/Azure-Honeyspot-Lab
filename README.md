@@ -1,4 +1,4 @@
-# Azure-Honeyspot-Lab
+<img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/13971b64-326a-4ce0-8780-b6fb9026ee3e" /># Azure-Honeyspot-Lab
 <h1>Create Cloud Virtual Machine</h1>
 <h2> Initial architecture overview</h2>
 <p>Inside Azure Subscription we would want to build:</p>
@@ -75,4 +75,52 @@
 <p>Then this will actually link our log analytics workspace to Sentinel SIEM, so we can access the logs from the log repository from our SIEM</p>
 <br>
 <img width="505" height="412" alt="image" src="https://github.com/user-attachments/assets/6ef70182-2bf7-4e30-9c3d-587f72fda259" />
+<br>
+---
+<h1>Connect the VM to the log analytics workspace</h1>
+<img width="474" height="389" alt="image" src="https://github.com/user-attachments/assets/8ceccb0c-411d-4772-8b55-c82be88a4d7d" />
+<br>
+<p>In Microsoft Sentinel tab, open the tab Content Management, and access Content Hub</p>
+<br>
+<img width="807" height="378" alt="image" src="https://github.com/user-attachments/assets/148dabec-4679-4f15-9641-e2b80336279c" />
+<br>
+<p>Search for Windows Security Events and install it </p>
+<br>
+<img width="801" height="276" alt="image" src="https://github.com/user-attachments/assets/b1e1ad7f-003a-477b-8363-42be6c7fb15b" />
+<br>
+<p>Once installed, hit Manage</p>
+<br>
+<img width="768" height="473" alt="image" src="https://github.com/user-attachments/assets/f1955d4c-ec6d-47ac-acab-38734de83224" />
+<br>
+<img width="787" height="389" alt="image" src="https://github.com/user-attachments/assets/f5ee4cb3-d3d3-4b51-8700-7bc09bb3f320" />
+<br>
+<img width="812" height="316" alt="image" src="https://github.com/user-attachments/assets/1b46af10-30fb-4ea1-883d-a078549ae116" />
+<br>
+<p>Then we need to create a data collection rule to forward all our Windows logs to the Log Analytics Workspace</p>
+<br>
+<img width="791" height="416" alt="image" src="https://github.com/user-attachments/assets/d778f2d9-507d-4687-a394-9bfddb1a29e5" />
+<br>
+<img width="788" height="715" alt="image" src="https://github.com/user-attachments/assets/02379cb5-80bf-442a-b45c-d9621570f652" />
+<br>
+<p>Then in <b>Settings - Extensions</b> we can see <b>AzureMonitorWindowsAgent</b> has been installed</p>
+<br>
+<img width="1853" height="533" alt="image" src="https://github.com/user-attachments/assets/590ca48b-432b-425e-bc5d-5bea539ca801" />
+<br>
+
+<h1>Query logs with KQL</h1>
+In Log Analytics Workspace, we should see some logs generated from the VM, to query the logs from our Windows machine, use the <b>SecurityEvent</b> table and run the query
+<img width="803" height="358" alt="image" src="https://github.com/user-attachments/assets/9da21356-c170-4919-8399-5f89772cdb7a" />
+<br>
+<p>KQL(Kusto Qury Language) is a powerful, reda-only language developed by Microsoft for rapidly querying and analysing large volumes of stuctured, semi-structured and unstructured data</p>
+<br>
+<p>We can also filter down which row and column in table we actually want to retrieve the data from </p>
+<img width="820" height="382" alt="image" src="https://github.com/user-attachments/assets/b9b48539-09d3-4570-a446-f42ce07fd4b0" />
+<br>
+
+<h1>Mapping IP address</h1>
+<p>The basic idea is that we put a list of public IP address ranges, feed it into Sentinel and for each ip from the log, it will try to map into the fed data and pinpoint the attacker's location</p>
+<br>
+<img width="795" height="377" alt="image" src="https://github.com/user-attachments/assets/5b699f29-57f0-4fad-9dc4-c160e618eeec" />
+<br>
+<img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/a09ec9cd-99e3-45c8-9d8a-f2ef1b74a1fc" />
 <br>
