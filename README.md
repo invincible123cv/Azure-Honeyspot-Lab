@@ -1,4 +1,4 @@
-<img width="814" height="200" alt="image" src="https://github.com/user-attachments/assets/6c3697b4-e94a-4076-b4a5-ea4b516d8bd7" /><img width="796" height="265" alt="image" src="https://github.com/user-attachments/assets/13971b64-326a-4ce0-8780-b6fb9026ee3e" /># Azure-Honeyspot-Lab
+# Azure-Honeyspot-Lab
 <h1>Create Cloud Virtual Machine</h1>
 <h2> Initial architecture overview</h2>
 <p>Inside Azure Subscription we would want to build:</p>
